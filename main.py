@@ -18,10 +18,10 @@ parser.add_argument("--n_updates", type=int, default=5000)
 parser.add_argument("--n_hiddens", type=int, default=128)
 parser.add_argument("--n_residual_hiddens", type=int, default=32)
 parser.add_argument("--n_residual_layers", type=int, default=2)
-parser.add_argument("--embedding_dim", type=int, default=8)
+parser.add_argument("--embedding_dim", type=int, default=6)
 parser.add_argument("--n_embeddings", type=int, default=512)
 parser.add_argument("--beta", type=float, default=.25)
-parser.add_argument("--learning_rate", type=float, default=1e-5)
+parser.add_argument("--learning_rate", type=float, default=1e-3)
 parser.add_argument("--log_interval", type=int, default=50)
 parser.add_argument("--dataset",  type=str, default='CIFAR100')
 parser.add_argument("--channel",  type=str, default=1)
@@ -49,9 +49,9 @@ Set up VQ-VAE model with components defined in ./models/ folder
 model = VQVAE(args.n_hiddens, args.n_residual_hiddens,
               args.n_residual_layers, args.n_embeddings, args.embedding_dim, args.beta, channel_dim=args.channel).to(device)
 
-model_filename = 'vqvae_data_thu_feb_2_19_04_22_2023.pth'
-
-model,vqvae_data = utils.load_model(model_filename)
+# model_filename = 'vqvae_data_thu_feb_2_19_04_22_2023.pth'
+#
+# model,vqvae_data = utils.load_model(model_filename)
 
 """
 Set up optimizer and training loop

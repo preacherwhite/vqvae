@@ -11,7 +11,8 @@ from models.vqvae import VQVAE
 def load_tang():
     train = []
     val = []
-    sites = ['m1s1', 'm1s2', 'm1s3', 'm2s1', 'm2s2', 'm3s1']
+    #sites = ['m1s1', 'm1s2', 'm1s3', 'm2s1', 'm2s2', 'm3s1']
+    sites = ['m2s1']
     transform = transforms.Normalize(0.5, 0.5)
     for site in sites:
         train.append(np.load(f'D:/school/research/vqvae/data/tang_img/train_img_{site}.npy'))
@@ -41,7 +42,7 @@ def load_tang_rsp():
     train = np.reshape(train, (train.shape[0], 1, train.shape[1]))
     val = np.concatenate(val, axis=0)
     val = np.reshape(val, (val.shape[0], 1, val.shape[1]))
-    return torch.FloatTensor(train[..., :296]), torch.FloatTensor(val[..., :296])
+    return torch.FloatTensor(train[..., :299]), torch.FloatTensor(val[..., :299])
 
 def load_cifar():
     train = datasets.CIFAR10(root="data", train=True, download=True,
